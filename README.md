@@ -95,5 +95,41 @@ your application by specifying it in the config entry:
 
 This links put you in touch with this beautifull framework.
 
+* [jQueryMobile Home](http://jquerymobile.com/)
 * [Getting Started on jQueryMobile](http://demos.jquerymobile.com/1.2.1/docs/about/getting-started.html)
 * [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/)
+
+
+##Keep Scripts up to date
+
+You need two basic scripts:  jquery and jquerymobile, both pure JS files.
+
+Download the latest from:
+
+* JQUERY: http://www.jquery.com/download, this link will download the jquery script,
+your responsability is to move the script inside: 
+	
+	jquerymobile/assets/jquery.min.js
+
+* JQUERY MOBILE, this script is a little bit more complex to find. First, navigate
+to http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip (the
+version numbers will change).  That ZIP file should be larger, inside it you'll
+find a ???.min.js file, and you should put it inside 
+
+	jquerymobile/assets/jqm.min.js
+
+Example,
+
+```
+	$ cd protected/extensions/jquerymobile/assets
+	$ wget http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip
+	$ unzip -v jquery.mobile-1.4.5.zip | grep -i .min.js
+		#note: the first one in this list is the jquery mobile script, 
+		... 66% 2014-10-31 13:33 2ab0c5e6  jquery.mobile-1.4.5.min.js
+		... 60% 2014-10-31 13:33 b3ef2d2c  demos/js/jquery.min.js
+		...66% 2014-10-31 13:33 2ab0c5e6  demos/js/jquery.mobile-1.4.5.min.js
+	$ unzip jquery.mobile-1.4.5.zip jquery.mobile-1.4.5.min.js
+	$ mv jquery.mobile-1.4.5.min.js jqm.min.js
+	$ rm jquery.mobile-1.4.5.zip
+```
+

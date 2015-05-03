@@ -27,6 +27,7 @@
 class JQueryMobileComponent extends CApplicationComponent {
 	public $theme = 'jqm-default.theme.min.css'; // stored in ./themes
 	public $autoload = false;
+	public $external_sample = false;
 	public function init(){
 		$this->publishAssets();
 	}
@@ -59,6 +60,18 @@ class JQueryMobileComponent extends CApplicationComponent {
 		if(true === $this->autoload){
 			// now, we can proceed as regular
 			$cs->registerCoreScript("jquery.mobile.theme");
+		}
+
+		if(true === $this->external_sample){
+			Yii::app()->clientScript->registerLinkTag(
+			"stylesheet",NULL,
+			"http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css");
+			Yii::app()->clientScript->registerScriptFile(
+				"http://code.jquery.com/jquery-1.8.3.min.js", 
+					CClientScript::POS_HEAD);
+			Yii::app()->clientScript->registerScriptFile(
+				"http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js",
+					CClientScript::POS_HEAD);
 		}
 	}
 }
