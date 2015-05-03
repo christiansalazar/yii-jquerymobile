@@ -11,7 +11,7 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 ```
 	'components'=>array(
 		'class'=>'application.extensions.JQueryMobileComponent',
-		'theme'=>'jqm-default.theme.min.js',  
+		'theme'=>'jqm-default.theme.min.css',  
 		// any available in extensions/jquerymobile/themes
 	),
 ```
@@ -58,5 +58,26 @@ the assets mechanism is sufficient smart to determine the dependencies,
 that is, if you call 'jquery.mobile.theme' it depends on 'jquery.mobile', 
 which also depends on 'jquery'.
 
+##Theming
 
++ Manage Themes: A predefined set of themes is available inside 'themes' directory of this
+extension, you can add/remove themes from this directory, lets suppose
+you have downloaded a new Theme from the [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/):
 
+	New Theme: **my-cool-jqm-theme.css**, please be aware that jquery mobile
+	theme roller creates for you a ZIP file containing a lot of files, you
+	don't need all of this files, you need only one of them: the css file.
+
+	Copy it inside: 
+
+	protected/extensions/jquerymobile/theme/my-cool-jqm-theme.css
+
++ Theme Selection:  You can control which of this themes should be used in
+your application by specifying it in the config entry:
+
+```
+	'components'=>array(                                          
+		'class'=>'application.extensions.JQueryMobileComponent',
+		'theme'=>'my-cool-jqm-theme.css',
+	),
+```
