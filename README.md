@@ -7,7 +7,7 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 
 ##Setup
 
-1. register a new component into: protected/config/main.php
++ register a new component into: protected/config/main.php
 ```
 	'components'=>array(
 		'class'=>'application.extensions.JQueryMobileComponent',
@@ -17,13 +17,14 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 	),
 ```
                                                                         
-2. launch it at startup in your protected/config/main.php
-                                                                        
++ launch it at startup in your protected/config/main.php
+```                                                                        
    	'init'=>array('jquerymobile'),
-
-3. Usage is: 
 ```
-	// call it in any action or controller when required:
+
++ Usage is: 
+```
+	// if 'autoload' is false, then invoke scripts in any action or controller when required:
 	Yii::app()->clientscript->registerCoreScript("jquery.mobile.theme");
 ```
 
