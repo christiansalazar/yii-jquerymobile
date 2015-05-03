@@ -90,3 +90,10 @@ your application by specifying it in the config entry:
 		'autoload'=>true,
 	),
 ```
+
+##About jQueryMobile
+
+This links put you in touch with this beautifull framework.
+
+* [Getting Started on jQueryMobile](http://demos.jquerymobile.com/1.2.1/docs/about/getting-started.html)
+* [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/)
