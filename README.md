@@ -54,8 +54,6 @@ the top of this readme file, you'll find this new/updated packages:
 
         Yii::app()->clientscript->registerCoreScript("jquery.mobile.theme");
 
-After setup, you have two choices, depending of the 'autoload' config entry:
-
 ###Autoload
 
 When 'autoload' is false, you are required to make a explicit call
