@@ -25,7 +25,7 @@
  * @license FreeBSD {@link http://www.freebsd.org/copyright/freebsd-license.html}
  */
 class JQueryMobileComponent extends CApplicationComponent {
-	public $theme = 'jqm-default.theme.min.css'; // stored in ./themes
+	public $theme = 'default';
 	public $autoload = false;
 	public $external_sample = false;
 	public function init(){
@@ -51,16 +51,27 @@ class JQueryMobileComponent extends CApplicationComponent {
 		$jqm['js'] = array('jqm.min.js');
 		$jqm['depends'] = array('jquery');
 
-		$jqmt = &$cs->corePackages['jquery.mobile.theme'];
-		$jqmt['basePath'] = $localThemesDir."/".$this->theme;
-		$jqmt['baseUrl'] = $assets2;
-		$jqmt['css'] = array($this->theme);
-		$jqmt['depends'] = array('jquery.mobile');
+		$jqms = &$cs->corePackages['jquery.mobile.structure'];
+		$jqms['basePath'] = $localAssetsDir."jqmmin.css";
+		$jqms['baseUrl'] = $assets;
+		$jqms['css'] = array('jqm.min.css');
+		$jqms['depends'] = array();
 
-		if(true === $this->autoload){
-			// now, we can proceed as regular
-			$cs->registerCoreScript("jquery.mobile.theme");
-		}
+		$jqmi = &$cs->corePackages['jquery.mobile.theme.icons'];
+		$jqmi['basePath'] = $localThemesDir.
+			'/'.$this->theme.'/'.$this->theme.'.min.css';
+		$jqmi['baseUrl'] = $assets2;
+		$jqmi['css'] = array($this->theme.'/jquery.mobile.icons.min.css');
+		$jqmi['depends'] = array('jquery.mobile');
+
+		$jqmt = &$cs->corePackages['jquery.mobile.theme'];
+		$jqmt['basePath'] = $localThemesDir.
+			'/'.$this->theme.'/'.$this->theme.'.min.css';
+		$jqmt['baseUrl'] = $assets2;
+		$jqmt['css'] = array($this->theme.'/'.$this->theme.'.min.css');
+		$jqmt['depends'] = array(
+			'jquery.mobile','jquery.mobile.structure',
+				'jquery.mobile.theme.icons');
 
 		if(true === $this->external_sample){
 			Yii::app()->clientScript->registerLinkTag(
@@ -72,6 +83,11 @@ class JQueryMobileComponent extends CApplicationComponent {
 			Yii::app()->clientScript->registerScriptFile(
 				"http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js",
 					CClientScript::POS_HEAD);
+		}else{
+			if(true === $this->autoload){
+				// now, we can proceed as regular
+				$cs->registerCoreScript("jquery.mobile.theme");
+			}
 		}
 	}
 }

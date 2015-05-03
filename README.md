@@ -91,6 +91,8 @@ your application by specifying it in the config entry:
 	),
 ```
 
+Read more about 'Adding Themes', at the bottom of this readme file.
+
 ##About jQueryMobile
 
 This links put you in touch with this beautifull framework.
@@ -131,5 +133,32 @@ Example,
 	$ unzip jquery.mobile-1.4.5.zip jquery.mobile-1.4.5.min.js
 	$ mv jquery.mobile-1.4.5.min.js jqm.min.js
 	$ rm jquery.mobile-1.4.5.zip
+```
+
+* JQUERY MOBILE STRUCTURE (CSS),  this is common to any theme. To obtain a 
+recent file dig into the downloaded theme made by Theme Roller and
+find its reference name in the 'index.html' file that comes in the zip file, 
+commonly is named (see also Adding Themes): 
+	
+	'jquery.mobile.structure-1.4.5.min.css', rename it as:
+
+	jquerymobile/assets/jqm.min.css
+
+##Adding Themes
+
+You can create and download your own themes by going to:
+
+	http://themeroller.jquerymobile.com/
+
+Click the 'Download' button, give it a name ('default' in my example) and
+start downloading it, in this example jquery mobile give it a name:
+
+	/home/christian/Downloads/jquery-mobile-theme-121520-0.zip
+
+```
+	$ cd /dev/myapp/protected/extensions/jquerymobile/themes
+	$ unzip /home/christian/Downloads/jquery-mobile-theme-121520-0.zip
+	$ mv themes mythemename
+		#'themes' is a default directory made by theme roller, so rename it.
 ```
 
