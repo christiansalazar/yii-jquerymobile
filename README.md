@@ -66,42 +66,6 @@ for your whole website actions and views, autoload=false is good for you.
 When 'autoload' is true, the 'jquery.mobile.theme' components is automatically
 invoked at startup, that is, the scripts are available for your whole website.
 
-##Theming
-
-+ Manage Themes: A predefined set of themes is available inside 'themes' directory of this
-extension, you can add/remove themes from this directory, lets suppose
-you have downloaded a new Theme from the [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/):
-
-	New Theme: **my-cool-jqm-theme.css**, please be aware that jquery mobile
-	theme roller creates for you a ZIP file containing a lot of files, you
-	don't need all of this files, you need only one of them: the css file.
-
-	Copy it inside: 
-
-	protected/extensions/jquerymobile/theme/my-cool-jqm-theme.css
-
-+ Theme Selection:  You can control which of this themes should be used in
-your application by specifying it in the config entry:
-
-```
-	'components'=>array(                                          
-		'class'=>'ext.jquerymobile.JQueryMobileComponent',
-		'theme'=>'my-cool-jqm-theme.css',
-		'autoload'=>true,
-	),
-```
-
-Read more about 'Adding Themes', at the bottom of this readme file.
-
-##About jQueryMobile
-
-This links put you in touch with this beautifull framework.
-
-* [jQueryMobile Home](http://jquerymobile.com/)
-* [Getting Started on jQueryMobile](http://demos.jquerymobile.com/1.2.1/docs/about/getting-started.html)
-* [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/)
-
-
 ##Keep Scripts up to date
 
 You need two basic scripts:  jquery and jquerymobile, both pure JS files.
@@ -144,11 +108,26 @@ commonly is named (see also Adding Themes):
 
 	jquerymobile/assets/jqm.min.css
 
+##Using Themes
+
+A predefined theme is available inside 'themes' directory of this
+extension.
+
+You can control which of this themes should be used in your application by 
+specifying it in the config entry:
+
+```
+	'components'=>array(                                          
+		'class'=>'ext.jquerymobile.JQueryMobileComponent',
+		'theme'=>'mynewtheme',
+		'autoload'=>true,
+	),
+```
+
 ##Adding Themes
 
-You can create and download your own themes by going to:
-
-	http://themeroller.jquerymobile.com/
+You can create and download your own themes by going to: 
+[JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/):
 
 Click the 'Download' button, give it a name ('default' in my example) and
 start downloading it, in this example jquery mobile give it a name:
@@ -162,3 +141,10 @@ start downloading it, in this example jquery mobile give it a name:
 		#'themes' is a default directory made by theme roller, so rename it.
 ```
 
+##About jQueryMobile
+
+This links put you in touch with this beautifull framework.
+
+* [jQueryMobile Home](http://jquerymobile.com/)
+* [Getting Started on jQueryMobile](http://demos.jquerymobile.com/1.2.1/docs/about/getting-started.html)
+* [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/)
