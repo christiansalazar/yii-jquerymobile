@@ -12,6 +12,7 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 	'components'=>array(
 		'class'=>'application.extensions.JQueryMobileComponent',
 		'theme'=>'jqm-default.theme.min.css',  
+		'autoload'=>true|false,  // the script insertion modality.
 		// any available in extensions/jquerymobile/themes
 	),
 ```
@@ -52,11 +53,17 @@ the top of this readme file, you'll find this new/updated packages:
 
         Yii::app()->clientscript->registerCoreScript("jquery.mobile.theme");
 
-So, after setup your extension you should be able to make a explicit call
-to any of this methods (above), please don't call all of them at the same time,
-the assets mechanism is sufficient smart to determine the dependencies, 
-that is, if you call 'jquery.mobile.theme' it depends on 'jquery.mobile', 
-which also depends on 'jquery'.
+After setup, you have two choices, depending of the 'autoload' config entry:
+
+###Autoload
+
+When 'autoload' is false, you are required to make a explicit call
+to any of this methods (above) by hand, as an example, for a specific 
+action or controller. To keep things clear: suppose you dont want jqm
+for your whole website actions and views, autoload=false is good for you.
+
+When 'autoload' is true, the 'jquery.mobile.theme' components is automatically
+invoked at startup, that is, the scripts are available for your whole website.
 
 ##Theming
 
@@ -79,5 +86,6 @@ your application by specifying it in the config entry:
 	'components'=>array(                                          
 		'class'=>'application.extensions.JQueryMobileComponent',
 		'theme'=>'my-cool-jqm-theme.css',
+		'autoload'=>true,
 	),
 ```

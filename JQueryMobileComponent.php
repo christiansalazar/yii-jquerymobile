@@ -26,6 +26,7 @@
  */
 class JQueryMobileComponent extends CApplicationComponent {
 	public $theme = 'jqm-default.theme.min.css'; // stored in ./themes
+	public $autoload = false;
 	public function init(){
 		$this->publishAssets();
 	}
@@ -33,7 +34,7 @@ class JQueryMobileComponent extends CApplicationComponent {
 		$localAssetsDir = dirname(__FILE__) . '/assets';
 		$localThemesDir = dirname(__FILE__) . '/themes';
 		$assets = Yii::app()->getAssetManager()->publish($localAssetsDir);
-		echo "\nTHIS_ASSET_DIR: {$assets}\n\n";
+		$assets2 = Yii::app()->getAssetManager()->publish($localThemesDir);
         $cs = Yii::app()->getClientScript();
 		$cs->corePackages=require(YII_PATH.'/web/js/packages.php');
 		// now process js files, by fixing path, moving them to this component
@@ -51,11 +52,13 @@ class JQueryMobileComponent extends CApplicationComponent {
 
 		$jqmt = &$cs->corePackages['jquery.mobile.theme'];
 		$jqmt['basePath'] = $localThemesDir."/".$this->theme;
-		$jqmt['baseUrl'] = $assets;
+		$jqmt['baseUrl'] = $assets2;
 		$jqmt['css'] = array($this->theme);
 		$jqmt['depends'] = array('jquery.mobile');
 
-		// now, we can proceed as regular
-		// $cs->registerCoreScript("jquery.mobile.theme");
+		if(true === $this->autoload){
+			// now, we can proceed as regular
+			$cs->registerCoreScript("jquery.mobile.theme");
+		}
 	}
 }
