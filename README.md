@@ -14,7 +14,7 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 		'jquerymobile'=>array(
 			'class'=>'ext.jquerymobile.JQueryMobileComponent',
 			// any available in extensions/jquerymobile/themes
-			'theme'=>'jqm-default.theme.min.css',  
+			'theme'=>'default',  
 			'autoload'=>true|false,  // the script insertion modality.
 		),
 	...
