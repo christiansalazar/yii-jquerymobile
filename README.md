@@ -10,10 +10,14 @@ Author: Christian Salazar H. christiansalazarh@gmail.com
 + register a new component into: protected/config/main.php
 ```
 	'components'=>array(
-		'class'=>'ext.jquerymobile.JQueryMobileComponent',
-		'theme'=>'jqm-default.theme.min.css',  
-		'autoload'=>true|false,  // the script insertion modality.
-		// any available in extensions/jquerymobile/themes
+	...
+		'jquerymobile'=>array(
+			'class'=>'ext.jquerymobile.JQueryMobileComponent',
+			// any available in extensions/jquerymobile/themes
+			'theme'=>'jqm-default.theme.min.css',  
+			'autoload'=>true|false,  // the script insertion modality.
+		),
+	...
 	),
 ```
                                                                         
@@ -115,7 +119,7 @@ You can control which of this themes should be used in your application by
 specifying it in the config entry:
 
 ```
-	'components'=>array(                                          
+	'jquerymobile'=>array(                                          
 		'class'=>'ext.jquerymobile.JQueryMobileComponent',
 		'theme'=>'mynewtheme',
 		'autoload'=>true,
