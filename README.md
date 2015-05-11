@@ -150,3 +150,4 @@ This links put you in touch with this beautifull framework.
 * [jQueryMobile Home](http://jquerymobile.com/)
 * [Getting Started on jQueryMobile](http://demos.jquerymobile.com/1.2.1/docs/about/getting-started.html)
 * [JQuery Mobile Theme Roller](http://themeroller.jquerymobile.com/)
+* [w3schools.com, very nice runnable examples](http://www.w3schools.com/jquerymobile/jquerymobile_examples.asp)
